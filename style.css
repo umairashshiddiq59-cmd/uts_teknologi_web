@@ -1,0 +1,690 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600;700&display=swap');
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --ocean-deep: #0B3C5D;
+    --ocean-deep-rgb: 11, 60, 93;
+    --ocean-main: #1CA7C1;
+    --ocean-main-rgb: 28, 167, 193;
+    --ocean-light: #4FD1C5;
+    --ocean-light-rgb: 79, 209, 197;
+    --sand: #F4E4C1;
+    --coral: #FF7F6B;
+    --coral-text: #8A352A;
+    --coral-rgb: 255, 127, 107;
+    --foam: #FFFFFF;
+    --foam-rgb: 255, 255, 255;
+    --section-light: #EAF6FA;
+    --text-main: #1F3A4D;
+    --text-muted: #526D7D;
+    --success: #14785C;
+    --success-rgb: 20, 120, 92;
+    --success-light: #DDF5EC;
+    --error: #C0392B;
+    --font-heading: 'Playfair Display', 'Poppins', sans-serif;
+    --font-body: 'Poppins', 'Nunito', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    color: var(--text-main);
+    background:
+        radial-gradient(ellipse at 12% 8%, rgba(var(--ocean-main-rgb), 0.1), transparent 34%),
+        linear-gradient(160deg, var(--foam), var(--section-light) 60%, var(--foam));
+    font-family: var(--font-body);
+    line-height: 1.6;
+}
+
+::selection {
+    color: var(--foam);
+    background: var(--ocean-deep);
+}
+
+.container {
+    width: 90%;
+    max-width: 1150px;
+    margin: auto;
+}
+
+h1,
+h2,
+h3,
+.logo,
+.btn {
+    font-family: var(--font-heading);
+}
+
+/* HEADER */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 18px 0;
+    border-bottom: 1px solid rgba(var(--ocean-main-rgb), 0.32);
+    background: rgba(var(--foam-rgb), 0.91);
+    box-shadow: 0 5px 22px rgba(var(--ocean-deep-rgb), 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: var(--ocean-deep);
+    font-size: 25px;
+    font-weight: 700;
+    text-decoration: none;
+    text-shadow: 1px 2px 0 rgba(var(--ocean-light-rgb), 0.3);
+}
+
+.logo span {
+    color: var(--ocean-main);
+}
+
+.nav-menu {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+}
+
+.nav-menu a {
+    color: var(--text-main);
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-menu a:hover,
+.nav-menu a:focus-visible {
+    color: var(--ocean-deep);
+}
+
+/* HERO */
+.hero {
+    position: relative;
+    display: flex;
+    min-height: 480px;
+    align-items: center;
+    overflow: hidden;
+    color: var(--foam);
+    background:
+        linear-gradient(
+            180deg,
+            rgba(var(--ocean-deep-rgb), 0.55) 0%,
+            rgba(var(--ocean-deep-rgb), 0.28) 48%,
+            rgba(var(--ocean-deep-rgb), 0.88) 100%
+        ),
+        linear-gradient(180deg, var(--ocean-light) 0%, var(--ocean-main) 46%, var(--ocean-deep) 100%);
+}
+
+.hero::before {
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+        108deg,
+        transparent 0 12%,
+        rgba(var(--foam-rgb), 0.11) 13%,
+        transparent 16% 26%
+    );
+    content: "";
+    pointer-events: none;
+}
+
+.hero::after {
+    position: absolute;
+    right: -5%;
+    bottom: -2px;
+    left: -5%;
+    height: 34px;
+    background: var(--section-light);
+    clip-path: polygon(
+        0 43%, 8% 57%, 16% 75%, 25% 52%, 34% 39%, 43% 59%,
+        51% 76%, 61% 48%, 70% 39%, 79% 60%, 89% 73%, 100% 44%,
+        100% 100%, 0 100%
+    );
+    content: "";
+    pointer-events: none;
+    animation: wave 12s ease-in-out infinite;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    padding: 80px 0;
+}
+
+.hero-label,
+.section-label {
+    color: var(--ocean-deep);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.hero-label {
+    display: inline-block;
+    color: var(--foam);
+    text-shadow: 0 1px 3px rgba(var(--ocean-deep-rgb), 0.9);
+    animation: float 5s ease-in-out infinite;
+}
+
+.hero h1 {
+    max-width: 650px;
+    margin: 18px 0;
+    font-size: 45px;
+    line-height: 1.2;
+    text-shadow: 0 2px 5px rgba(var(--ocean-deep-rgb), 0.6);
+}
+
+.hero p {
+    max-width: 550px;
+    margin-bottom: 28px;
+    color: var(--foam);
+    text-shadow: 0 1px 4px rgba(var(--ocean-deep-rgb), 0.8);
+}
+
+/* BUTTON */
+.btn {
+    display: inline-block;
+    padding: 12px 23px;
+    border: 2px solid var(--ocean-deep);
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    color: var(--ocean-deep);
+    background: linear-gradient(120deg, var(--ocean-light), var(--ocean-main));
+    box-shadow: 0 4px 12px rgba(var(--ocean-deep-rgb), 0.2);
+}
+
+.btn-primary:hover,
+.btn-primary:focus-visible {
+    box-shadow: 0 7px 20px rgba(var(--ocean-light-rgb), 0.5);
+    transform: translateY(-3px);
+}
+
+.btn-secondary {
+    color: var(--foam);
+    background: linear-gradient(120deg, var(--ocean-deep), var(--ocean-main));
+    box-shadow: 0 4px 12px rgba(var(--ocean-deep-rgb), 0.22);
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus-visible {
+    background: linear-gradient(120deg, var(--ocean-main), var(--ocean-deep));
+    box-shadow: 0 7px 20px rgba(var(--ocean-deep-rgb), 0.28);
+    transform: translateY(-3px);
+}
+
+.btn:active {
+    transform: translateY(1px);
+}
+
+.btn:focus-visible,
+.nav-menu a:focus-visible,
+.search-box input:focus-visible,
+.form-group input:focus-visible,
+.form-group select:focus-visible {
+    outline: 3px solid var(--ocean-main);
+    outline-offset: 3px;
+}
+
+/* SECTION */
+.villa-section,
+.booking-section {
+    padding: 75px 0;
+}
+
+.section-heading {
+    margin-bottom: 35px;
+    text-align: center;
+}
+
+.section-heading h2 {
+    margin: 8px 0;
+    color: var(--ocean-deep);
+    font-size: 30px;
+}
+
+.section-heading p {
+    color: var(--text-muted);
+}
+
+/* SEARCH */
+.search-box {
+    max-width: 500px;
+    margin: 0 auto 30px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid rgba(var(--ocean-deep-rgb), 0.55);
+    border-radius: 10px;
+    color: var(--text-main);
+    background: var(--foam);
+    font: 14px var(--font-body);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-box input::placeholder {
+    color: var(--text-muted);
+    opacity: 1;
+}
+
+.search-box input:focus,
+.form-group input:focus,
+.form-group select:focus {
+    outline: 3px solid rgba(var(--ocean-light-rgb), 0.9);
+    outline-offset: 2px;
+    border-color: var(--ocean-main);
+    box-shadow: 0 0 0 4px rgba(var(--ocean-main-rgb), 0.16);
+}
+
+/* VILLA CARD */
+.villa-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.villa-card {
+    overflow: hidden;
+    border: 1px solid rgba(var(--ocean-main-rgb), 0.2);
+    border-radius: 18px;
+    background: var(--foam);
+    box-shadow: 0 8px 24px rgba(var(--ocean-deep-rgb), 0.12);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.villa-card:hover {
+    box-shadow: 0 14px 30px rgba(var(--ocean-deep-rgb), 0.2);
+    transform: translateY(-6px);
+}
+
+.villa-card__image {
+    position: relative;
+    display: flex;
+    height: 170px;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--ocean-light), var(--ocean-main) 58%, var(--ocean-deep));
+    font-size: 48px;
+}
+
+
+.villa-card__body {
+    padding: 22px;
+}
+
+.villa-card__body h3 {
+    margin-bottom: 8px;
+    color: var(--ocean-deep);
+    font-size: 20px;
+}
+
+.villa-card__description {
+    margin-bottom: 12px;
+    color: var(--text-muted);
+    font-size: 13px;
+}
+
+.villa-card__price {
+    display: inline-block;
+    margin: 12px 0;
+    padding: 3px 8px;
+    border-radius: 6px;
+    color: var(--coral-text);
+    background: rgba(var(--coral-rgb), 0.2);
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.villa-card__facilities {
+    margin-bottom: 15px;
+    color: var(--text-main);
+    font-size: 13px;
+}
+
+.villa-card__status {
+    display: inline-block;
+    padding: 3px 9px;
+    border: 1px solid rgba(var(--success-rgb), 0.25);
+    border-radius: 999px;
+    color: var(--success);
+    background: var(--success-light);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.villa-photo {
+    transition: transform 0.3s ease;
+}
+
+.villa-card:hover .villa-photo {
+    transform: scale(1.04);
+}
+
+/* BOOKING */
+.booking-section {
+    background: linear-gradient(145deg, var(--section-light), rgba(var(--ocean-light-rgb), 0.16));
+}
+
+.booking-card {
+    max-width: 750px;
+    margin: auto;
+    padding: 35px;
+    border: 1px solid rgba(var(--ocean-main-rgb), 0.22);
+    border-radius: 18px;
+    background: rgba(var(--foam-rgb), 0.94);
+    box-shadow: 0 10px 28px rgba(var(--ocean-deep-rgb), 0.12);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--text-main);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 13px;
+    border: 2px solid rgba(var(--ocean-deep-rgb), 0.42);
+    border-radius: 9px;
+    color: var(--text-main);
+    background: var(--foam);
+    font: 14px var(--font-body);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group select option {
+    color: var(--text-main);
+    background: var(--foam);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/* PRICE */
+.price-summary {
+    margin: 20px 0;
+    padding: 20px;
+    border: 1px dashed var(--ocean-main);
+    border-radius: 10px;
+    color: var(--text-main);
+    background: linear-gradient(135deg, var(--section-light), rgba(var(--ocean-light-rgb), 0.18));
+}
+
+.price-summary h3 {
+    margin-bottom: 10px;
+    color: var(--ocean-deep);
+}
+
+.price-summary p {
+    color: var(--text-muted);
+    font-size: 14px;
+}
+
+.price-line {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin: 8px 0;
+    color: var(--text-main);
+}
+
+.price-total {
+    padding-top: 12px;
+    border-top: 1px solid rgba(var(--ocean-deep-rgb), 0.2);
+    color: var(--ocean-deep) !important;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.form-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.message {
+    margin-bottom: 15px;
+    color: var(--error);
+    font-size: 14px;
+}
+
+.order-result {
+    margin-top: 20px;
+    color: var(--success);
+    font-size: 14px;
+}
+
+/* FOOTER */
+.footer {
+    position: relative;
+    overflow: hidden;
+    padding: 44px 0 40px;
+    border-top: 3px solid transparent;
+    border-image: linear-gradient(90deg, var(--ocean-main), var(--ocean-light), var(--ocean-main)) 1;
+    color: var(--foam);
+    background:
+        linear-gradient(180deg, transparent 0 92%, rgba(var(--ocean-main-rgb), 0.2) 92%),
+        var(--ocean-deep);
+    text-align: center;
+}
+
+.footer::before {
+    position: absolute;
+    top: -1px;
+    right: 0;
+    left: 0;
+    height: 12px;
+    background: repeating-radial-gradient(ellipse at 50% 100%, var(--ocean-light) 0 8px, transparent 9px 22px);
+    content: "";
+    opacity: 0.75;
+    pointer-events: none;
+}
+
+.footer h2 {
+    margin-bottom: 10px;
+    color: var(--sand);
+}
+
+.footer p {
+    margin: 7px 0;
+    color: var(--foam);
+    font-size: 14px;
+}
+
+.copyright {
+    margin-top: 25px !important;
+    padding-top: 20px;
+    border-top: 1px solid rgba(var(--foam-rgb), 0.24);
+}
+
+/* ANIMATION */
+@keyframes wave {
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(18px);
+    }
+}
+
+@keyframes float {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+/* TABLET */
+@media screen and (max-width: 768px) {
+    .nav-menu {
+        gap: 12px;
+    }
+
+    .nav-menu a {
+        font-size: 12px;
+    }
+
+    .hero h1 {
+        font-size: 35px;
+    }
+
+    .villa-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .booking-card {
+        padding: 25px;
+    }
+}
+
+/* MOBILE */
+@media screen and (max-width: 480px) {
+    .header {
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        background: rgba(var(--foam-rgb), 0.98);
+    }
+
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav-menu {
+        gap: 13px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero {
+        min-height: 400px;
+    }
+
+    .hero h1 {
+        font-size: 30px;
+    }
+
+    .hero-label,
+    .villa-card__image::before {
+        animation: none;
+    }
+
+    .hero::after {
+        animation-duration: 18s;
+    }
+
+    .villa-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .booking-card {
+        padding: 18px;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .form-actions .btn {
+        width: 100%;
+    }
+
+    .section-heading h2 {
+        font-size: 25px;
+    }
+}
+
+/* VILLA PHOTO */
+.villa-photo {
+    display: block;
+    width: 100%;
+    height: 255px;
+    object-fit: cover;
+}
+
+.villa-image {
+    width: 100%;
+    height: 255px;
+    overflow: hidden;
+    background: var(--section-light);
+}
+
+/* SCROLLBAR */
+* {
+    scrollbar-color: var(--ocean-main) var(--section-light);
+    scrollbar-width: thin;
+}
+
+*::-webkit-scrollbar {
+    width: 10px;
+}
+
+*::-webkit-scrollbar-track {
+    background: var(--section-light);
+}
+
+*::-webkit-scrollbar-thumb {
+    border: 2px solid var(--section-light);
+    border-radius: 10px;
+    background: linear-gradient(var(--ocean-main), var(--ocean-light));
+}
+
+/* REDUCED MOTION */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
